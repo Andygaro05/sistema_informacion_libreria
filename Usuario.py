@@ -50,3 +50,9 @@ class Usuarios:
     def agregar_usuarios(self, lista_usuarios):
         """Agrega una lista de usuarios a la colección."""
         self.usuarios.extend(lista_usuarios)
+
+    def buscar_usuario(self, cc):
+        self.cc = cc
+        for usuario in self.usuarios:
+            if cc in usuario[1]:
+                return usuario

@@ -1,5 +1,7 @@
 import pandas as pd
 from Catalogo import Catalogo
+from Articulo import Articulo
+
 class Biblioteca:
     def __init__(self, nombre):
         self.nombre = nombre
@@ -7,33 +9,6 @@ class Biblioteca:
         self.usuarios = {}  # Diccionario para almacenar los usuarios por ID
         self.prestamos = []  # Lista para almacenar los préstamos
         self.reservas = []  # Lista para almacenar las reservas
-
-    def agregar_articulo(self, articulo):
-        self.catalogo.agregar_articulo(articulo)
-
-    def agregar_usuario(self, usuario):
-        self.usuarios[usuario.id] = usuario
-
-    def realizar_prestamo(self, usuario_id, articulo_id):
-        usuario = self.usuarios.get(usuario_id)
-        articulo = self.catalogo.buscar_articulo(articulo_id)
-        if usuario and articulo and self.catalogo.validar_disponibilidad(articulo_id):
-            self.prestamos.append((usuario, articulo))
-            articulo.estado = "Prestado"
-            return True
-        return False
-
-    def realizar_reserva(self, usuario_id, articulo_id, fecha_reserva):
-        usuario = self.usuarios.get(usuario_id)
-        articulo = self.catalogo.buscar_articulo(articulo_id)
-        if usuario and articulo and self.catalogo.validar_disponibilidad(articulo_id):
-            self.catalogo.reservar(articulo_id, usuario, fecha_reserva)
-            self.reservas.append((usuario, articulo, fecha_reserva))
-            return True
-        return False
-
-    # def devolver_articulo(self, usuario_id, articulo_id):
-    #     # ... Implementación para devolver un artículo
 
     def generar_reporte(self):
         # Calcular métricas:

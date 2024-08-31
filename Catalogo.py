@@ -19,10 +19,12 @@ class Catalogo:
             return True
         return False
 
-    def notificar_pendiente(self, correo, mensaje):
-        # Aquí implementarías la lógica para enviar el correo
-        # Puedes usar bibliotecas como smtplib o servicios de envío de correos en la nube
-        print(f"Notificación enviada a {correo}: {mensaje}")
+    def notificar_pendiente(self, usuarios, mensaje):
+        usuarios_notificados = []
+        for usuario in usuarios:
+            print(f"Notificación enviada a {usuario.correo}: {mensaje}")
+            usuarios_notificados.append(usuario)
+        return usuarios_notificados
 
     def reservar(self, articulo_id, usuario, fecha_reserva):
         articulo = self.articulos.get(articulo_id)
@@ -32,3 +34,6 @@ class Catalogo:
             print(f"Artículo {articulo.titulo} reservado para {usuario.nombre} hasta {fecha_reserva}")
         else:
             print("Artículo no disponible para reserva.")
+
+
+    
