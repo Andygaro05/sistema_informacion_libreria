@@ -1,0 +1,19 @@
+# Python-specific ignore patterns
+__pycache__/
+*.pyc
+
+# IDE-specific files
+.vscode/
+
+# Other ignore patterns
+.idea/
+.DS_Store
+
+# macOS-specific ignore patterns
+.Spotlight-V100/
+.Trashes/
+.AppleDouble/
+
+# Other OS-specific ignore patterns
+# Linux: .cache/, .local/
+# Windows: Thumbs.db, System Volume Information/
