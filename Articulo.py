@@ -6,7 +6,21 @@ class Articulo:
         self.estado = estado  # Disponible, Prestado, Perdido, Dañado
         self.categoria = categoria  # Libro, Revista, DVD, etc.
 
-#añadir el factory cuando funcione c/u
+class Articulo_Factory():
+    def crear_articulo(self, tipo, **kwargs):
+        if tipo == "libro":
+            return Libro(**kwargs)
+        elif tipo == "revista":
+            return Revista(**kwargs)
+        elif tipo == "periodico":
+            return Periodico(**kwargs)
+        elif tipo == "cd":
+            return CD(**kwargs)
+        elif tipo == "dvd":
+            return DVD(**kwargs)
+        else:
+            raise ValueError("Tipo de artículo no válido")
+
 class Libro(Articulo):
     def __init__(self, id, titulo, autor, isbn, editorial, **kwargs):
         super().__init__(id, titulo, autor, **kwargs)
