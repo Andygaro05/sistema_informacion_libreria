@@ -41,8 +41,8 @@ resultados = catalogo.buscar_articulo("National")
 for articulo in resultados:
     print(articulo)
     
-prestamo = Prestamo(usuario1, libro1, date.today())
-prestamo.realizar_prestamo(usuario1.id, "El Quijote")
+# prestamo = Prestamo(usuario1, libro1, date.today())
+# prestamo.realizar_prestamo(usuario1.id, "El Quijote")
 
 if prestamo:
     print("Préstamo realizado con éxito.")
