@@ -1,4 +1,3 @@
-from datetime import datetime
 import re
 
 class Usuario:
@@ -40,3 +39,14 @@ class Usuario:
             
     def __repr__(self):
         return f"Usuario(id={self.id}, nombre='{self.nombre_completo}', correo='{self.correo}')"
+    
+class Usuarios:
+    def __init__(self):
+        self.usuarios = []
+
+    def agregar_usuario(self, usuario):
+        self.usuarios.append(usuario)
+
+    def agregar_usuarios(self, lista_usuarios):
+        """Agrega una lista de usuarios a la colección."""
+        self.usuarios.extend(lista_usuarios)
