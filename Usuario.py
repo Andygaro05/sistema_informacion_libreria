@@ -15,7 +15,7 @@ class Usuario:
 
     def _validar_correo(self, correo):
         # Expresión regular básica para validar correos electrónicos
-        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+        regex = r".*@.*"
         if not re.fullmatch(regex, correo):
             raise ValueError("Correo electrónico inválido")
         return correo
@@ -25,3 +25,18 @@ class Usuario:
         if not celular.isdigit():
             raise ValueError("Número de celular inválido")
         return celular
+    
+    def actualizar_datos(self, **kwargs):
+        #crea un diccionario que mira los valores existentes
+        #Raises ValueError: Si se intenta actualizar un atributo que no existe o si el valor proporcionado no es válido.
+        for atributo, nuevo_valor in kwargs.items():
+            if hasattr(self, atributo):
+                if atributo in ["celular", "correo"]:
+                    # Validar los valores nuevamente si se modifican
+                    nuevo_valor = getattr(self, f"_validar_{atributo}")(nuevo_valor)
+                setattr(self, atributo, nuevo_valor)
+            else:
+                raise ValueError(f"El atributo '{atributo}' no existe en la clase Usuario.")
+            
+    def __repr__(self):
+        return f"Usuario(id={self.id}, nombre='{self.nombre_completo}', correo='{self.correo}')"
