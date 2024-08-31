@@ -1,9 +1,9 @@
 from datetime import date
-from Usuario import *
-from Articulo import *
-from Biblioteca import *
-from Catalogo import *
-from Prestamo import *
+from usuario import *
+from articulo import *
+from biblioteca import *
+from catalogo import *
+from prestamo import *
 
 
 biblioteca = Biblioteca("Alejandria")

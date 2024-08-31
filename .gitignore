@@ -4,9 +4,9 @@ __pycache__/
 
 # IDE-specific files
 .vscode/
-poetry.lock
-pyproject.toml
-replit.nix
+.poetry.lock
+.pyproject.toml
+.replit.nix
 
 # Other ignore patterns
 .idea/
