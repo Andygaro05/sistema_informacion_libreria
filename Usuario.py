@@ -1,10 +1,9 @@
 from datetime import datetime
-
 import re
 
 class Usuario:
-    def __init__(self, id, nombre_completo, direccion, celular, correo, fecha_nacimiento, trabaja, cargo=None, estudio=None):
-        self.id = id
+    def __init__(self, cc, nombre_completo, direccion, celular, correo, fecha_nacimiento, trabaja, cargo=None, estudio=None):
+        self.id = cc
         self.nombre_completo = nombre_completo
         self.direccion = direccion
         self.celular = self._validar_celular(celular)
